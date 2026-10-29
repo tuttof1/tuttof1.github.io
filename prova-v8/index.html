@@ -200,8 +200,8 @@ summary:hover{background:#f2f3eb}
 /* v8 — apertura animata dal poster + tendina */
 .intro{position:relative;background:#f9d196;max-width:640px;margin:0 auto}
 .intro video{display:block;width:100%;height:auto;aspect-ratio:1/1;background:#f9d196}
-.go{position:absolute;left:58%;top:13%;transform:translateY(8px);opacity:0;pointer-events:none;transition:opacity .6s ease,transform .6s ease;
- font:italic 900 22px/1 var(--f-disp);text-transform:uppercase;letter-spacing:.02em;color:var(--hero-ink);background:var(--helm);border:3px solid var(--hero-ink);
+.go{position:absolute;right:4%;top:27%;white-space:nowrap;transform:translateY(8px);opacity:0;pointer-events:none;transition:opacity .6s ease,transform .6s ease;
+ font:italic 900 clamp(17px,5vw,24px)/1 var(--f-disp);text-transform:uppercase;letter-spacing:.02em;color:var(--hero-ink);background:var(--helm);border:3px solid var(--hero-ink);
  padding:12px 16px 11px;box-shadow:5px 5px 0 var(--green);cursor:pointer}
 .go::before{content:"";position:absolute;left:-15px;top:50%;border:8px solid transparent;border-right-color:var(--hero-ink);transform:translateY(-50%)}
 .go.on{opacity:1;transform:none;pointer-events:auto;animation:pulse 2.4s ease-in-out 1s infinite}
@@ -210,7 +210,7 @@ summary:hover{background:#f2f3eb}
 .skip.off{display:none}
 .tend{overflow:hidden;max-height:0;transition:max-height 1.4s ease}
 .tend.open{max-height:none}
-@media (max-width:380px){.go{font-size:19px;padding:10px 13px 9px}}
+
 </style>
 </head>
 <body>
