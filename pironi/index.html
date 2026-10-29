@@ -183,6 +183,7 @@ h1{color:var(--hero-ink)}
 .band{position:relative;height:clamp(250px,72vw,440px);overflow:hidden;isolation:isolate;
  background:linear-gradient(180deg,var(--helm) 0 16%,#fff 16% 17.2%,var(--green) 17.2% 33%,#fff 33% 34.2%,var(--helm) 34.2% 52%,#fff 52% 53.2%,var(--blue) 53.2% 70%,#fff 70% 71.2%,var(--helm) 71.2% 100%)}
 .band::before{content:"";position:absolute;inset:0;background:var(--fil) center/cover no-repeat;opacity:.16;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.15);z-index:0}
+.band:empty{height:110px!important;min-height:0!important}
 .band img{position:absolute;left:50%;top:52%;width:min(68%,430px);height:auto;transform:translate(-50%,-50%) rotate(-4deg);filter:drop-shadow(0 18px 18px rgba(0,0,0,.35));z-index:1;animation:entra .9s ease-out both}
 @keyframes entra{from{opacity:0;transform:translate(-62%,-50%) rotate(-10deg)}to{opacity:1;transform:translate(-50%,-50%) rotate(-4deg)}}
 .casco{grid-template-columns:minmax(0,1fr)!important}
@@ -193,7 +194,7 @@ h1{color:var(--hero-ink)}
 .era span{font:600 12px/1.4 var(--f-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 .note ul{margin:4px 0 9px;padding-left:18px}
 
-:root{--helm:#0E0F61;--green:#FFFFFF;--blue:#CE2B37;--hero-ink:#FFFFFF;--hero-name:#FF5A5F;--accent:#FFFFFF;--accent-2:#CE2B37;--hero-kick:#D6D8F2}
+:root{--helm:#0E0F61;--green:#FFFFFF;--blue:#CE2B37;--hero-ink:#FFFFFF;--hero-name:#FF5A5F;--accent:#0E0F61;--accent-2:#CE2B37;--hero-kick:#D6D8F2}
 
 </style></head><body>
 <header class="helm"><div class="in pad">

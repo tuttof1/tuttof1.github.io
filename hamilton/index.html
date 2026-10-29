@@ -183,6 +183,7 @@ h1{color:var(--hero-ink)}
 .band{position:relative;height:clamp(250px,72vw,440px);overflow:hidden;isolation:isolate;
  background:linear-gradient(180deg,var(--helm) 0 16%,#fff 16% 17.2%,var(--green) 17.2% 33%,#fff 33% 34.2%,var(--helm) 34.2% 52%,#fff 52% 53.2%,var(--blue) 53.2% 70%,#fff 70% 71.2%,var(--helm) 71.2% 100%)}
 .band::before{content:"";position:absolute;inset:0;background:var(--fil) center/cover no-repeat;opacity:.16;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.15);z-index:0}
+.band:empty{height:110px!important;min-height:0!important}
 .band img{position:absolute;left:50%;top:52%;width:min(68%,430px);height:auto;transform:translate(-50%,-50%) rotate(-4deg);filter:drop-shadow(0 18px 18px rgba(0,0,0,.35));z-index:1;animation:entra .9s ease-out both}
 @keyframes entra{from{opacity:0;transform:translate(-62%,-50%) rotate(-10deg)}to{opacity:1;transform:translate(-50%,-50%) rotate(-4deg)}}
 .casco{grid-template-columns:minmax(0,1fr)!important}
@@ -194,7 +195,7 @@ h1{color:var(--hero-ink)}
 .note ul{margin:4px 0 9px;padding-left:18px}
 
 :root{--helm:#5b2a86;--green:#111111;--blue:#39d353;--hero-ink:#ffffff;--hero-name:#39d353;--accent:#5b2a86;--accent-2:#2a9d3c;--hero-kick:#d9c2f0}
-
+@media (max-width:600px){h1{font-size:14.9vw!important;max-width:none!important;overflow-wrap:normal;word-break:normal}}
 </style></head><body>
 <header class="helm"><div class="in pad">
   <div class="top"><span>Tutto F1 · I video</span><span>Volume 1</span></div>
@@ -233,7 +234,7 @@ DATA.forEach((d,i)=>{
   a.innerHTML=`<div class="hd"><div class="y">${d.anno}<small>${esc(d.luogo)}</small></div><div class="tx"><h2>${esc(d.titolo)}</h2><p>${esc(d.testo)}</p>${d.pg?`<span class="pg">→ libro p. ${d.pg}<i>provvisorio</i></span>`:(d.testo_pg?`<span class="pg">→ nel libro<i>${esc(d.testo_pg)}</i></span>`:'')}${d.avviso?`<br><span class="warn">${esc(d.avviso)}</span>`:''}</div></div>
   <div class="slot"><button class="vid" type="button" aria-label="Guarda il video: ${esc(d.titolo)}" style="background-image:url('https://i.ytimg.com/vi/${d.id}/hqdefault.jpg'),linear-gradient(135deg,#1d2a44,#0c1220)"><span class="shade"></span><span class="play"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1l7 4-7 4z"/></svg></span><span class="lbl">${d.solo_youtube?'Guarda su YouTube':'Guarda'}${d.start?' · dal minuto '+fmt(d.start):''}${d.marks?' · gara intera':''}</span></button></div>
   ${marks}${alt}
-  <div class="ft"><span>${esc(d.fonte)}</span><span>${subInfo}</span></div>${subs}`;
+  <div class="ft"><span>${esc(d.fonte)}</span><span>${subInfo}${d.pubblicita?" · può partire una breve pubblicità di YouTube":""}</span></div>${subs}`;
   const slot=a.querySelector('.slot');
   a.querySelector('.vid').addEventListener('click',()=>play(slot,d));
   a.querySelectorAll('.marks button').forEach(b=>b.addEventListener('click',()=>{const tt=+b.dataset.t;if(slot._p&&slot._p.seekTo){slot._p.seekTo(tt,true);slot._p.playVideo()}else play(slot,Object.assign({},d,{start:tt}))}));
