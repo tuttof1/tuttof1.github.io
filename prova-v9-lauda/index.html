@@ -203,14 +203,14 @@ h1{color:var(--hero-ink)}
  border:1px solid rgba(255,255,255,.55);border-radius:4px;padding:10px 14px;cursor:pointer;white-space:nowrap;z-index:3}
 .go::after{content:"";position:absolute;right:-7px;top:50%;width:12px;height:12px;background:rgba(17,17,17,.82);border-right:1px solid rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.55);transform:translateY(-50%) rotate(45deg)}
 .go:hover{background:#111}
-.go{right:14%;top:9%}
+.go{right:29%;top:36%}.go::after{right:auto;left:100px;top:auto;bottom:-7px;transform:rotate(135deg)}
 .go.on{opacity:1;transform:none;pointer-events:auto}
 .skip{z-index:3;position:absolute;right:10px;bottom:10px;font:600 12px/1 var(--f-ui);background:rgba(255,255,255,.85);border:1px solid #0003;padding:8px 11px;border-radius:999px;cursor:pointer}
 .skip.off{display:none}
 .tend{overflow:hidden;max-height:0;transition:max-height 1.4s ease}
 .tend.open{max-height:none}
 
-</style></head><body><section class="intro" aria-label="Apertura"><video id="iv" src="https://d8j0ntlcm91z4.cloudfront.net/user_3K5cP8ujvJ0saQMpzolVNEGMXPX/hf_20261029_221745_d8cf8869-8b65-4f41-9f45-9e4ae25c65cb.mp4" muted playsinline autoplay preload="auto"></video><button class="go" id="go" type="button">Inizia a guardare ›</button><button class="skip" id="skip" type="button">Salta ▸</button></section>
+</style></head><body><section class="intro" aria-label="Apertura"><video id="iv" src="https://d8j0ntlcm91z4.cloudfront.net/user_3K5cP8ujvJ0saQMpzolVNEGMXPX/hf_20261029_223251_84553a03-afc4-405b-a9d7-b2423cc7a306.mp4" muted playsinline autoplay preload="auto"></video><button class="go" id="go" type="button">Inizia a guardare ›</button><button class="skip" id="skip" type="button">Salta ▸</button></section>
 <div class="tend" id="tend">
 
 <header class="helm"><div class="in pad">
@@ -283,7 +283,7 @@ const ERAS={"Ferrari": ["Ferrari", "1974-77", "data:image/jpeg;base64,/9j/4AAQSk
 (function(){let last='';document.querySelectorAll('#list .m').forEach((el,i)=>{const team=(DATA[i].luogo.split('·').pop()||'').trim();let e=ERAS[team];const y=+DATA[i].anno;if(e&&(y<e[3]||y>e[4]))e=null;if(e&&team!==last){const x=document.createElement('div');x.className='era';x.style.setProperty('--fil',"url('"+e[2]+"')");x.innerHTML='<b>'+e[0]+'</b><span>'+e[1]+'</span>';el.before(x)}last=e?team:''})})();
 
 (function(){const v=document.getElementById('iv'),go=document.getElementById('go'),sk=document.getElementById('skip'),t=document.getElementById('tend');
-let fine=false;const FINE=15.5;
+let fine=false;const FINE=15;
 function finale(){if(fine)return;fine=true;sk.classList.add('off');go.classList.add('on')}
 v.addEventListener('timeupdate',()=>{if(v.currentTime>=FINE)finale()});
 v.addEventListener('ended',()=>{finale();v.pause()});
