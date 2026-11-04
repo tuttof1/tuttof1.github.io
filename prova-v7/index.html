@@ -255,6 +255,7 @@ DATA.forEach((d,i)=>{
   if(d.alt)a.querySelector('.altb').addEventListener('click',()=>play(slot,Object.assign({sub:[],start:0},d.alt)));
   list.appendChild(a);
 });
+function outCard(stage,d,msg){const url='https://www.youtube.com/watch?v='+d.id+(d.start?'&t='+d.start+'s':'');stage.insertAdjacentHTML('beforeend','<div class="fallback"><div>'+esc(msg)+'<br><br><a href="'+url+'" target="_blank" rel="noopener">Guarda su YouTube'+(d.start?' dal minuto '+fmt(d.start):'')+' →</a></div></div>')}
 let apiP=null;
 function loadAPI(){if(apiP)return apiP;apiP=new Promise((res,rej)=>{if(window.YT&&YT.Player)return res();window.onYouTubeIframeAPIReady=()=>res();const s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';s.onerror=rej;document.head.appendChild(s);setTimeout(()=>rej('timeout'),5000)});return apiP}
 let current=null;
